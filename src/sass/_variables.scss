@@ -1,0 +1,44 @@
+$golden-ratio: 1.61803398;
+
+$includeGoogleSerifFonts : true !default;
+$includeGoogleSansFonts  : true !default;
+$includeGoogleMonoFonts  : true !default;
+
+$fontSerif: "Noto Serif KR", serif;
+$fontSans : "Noto Sans KR", sans-serif;
+$fontMono : "Nanum Gothic Coding", monospace;
+
+//-- global
+$line-height          : $golden-ratio       !default;
+$half-line-height     : 0.5  * $line-height !default;
+$quarter-line-height  : 0.25 * $line-height !default;
+
+//-- media queries
+$media-small-max  : 479px !default;
+$media-medium-min : 480px !default;
+$media-medium-max : 767px !default;
+$media-large-min  : 768px !default;
+
+//- colors -//
+$double-dark-gray : #1e1b18;
+$dark-gray        : #35322f;
+$medium-gray      : #5d5b59;
+$regular-gray     : #868482;
+$light-gray       : #aeadac;
+$pale-gray        : #d7d6d5;
+
+$darkest-black: rgba(black, .88);
+$darker-black : rgba(black, .78);
+$dark-black   : rgba(black, .68);
+$medium-black : rgba(black, .58);
+
+//- fonts -//
+@if $includeGoogleSansFonts == true {
+  @import url(http://fonts.googleapis.com/css?family=Noto+Sans+KR);
+}
+@if $includeGoogleSerifFonts == true {
+  @import url(http://fonts.googleapis.com/css?family=Noto+Serif+KR);
+}
+@if $includeGoogleMonoFonts == true {
+  @import url(http://fonts.googleapis.com/css?family=Nanum+Gothic+Coding);
+}

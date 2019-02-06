@@ -1,0 +1,104 @@
+//- common styles -//
+body {
+  line-height : $golden-ratio;
+  font-family : $fontSans;
+  font-kerning: normal;
+  color       : $darker-black;
+//  word-break  : keep-all;
+}
+
+p {
+  margin-top    : $half-line-height * 1em;
+  font-family   : $fontSans;
+  font-weight   : 400;
+  font-style    : normal;
+
+  @include media-small {
+    letter-spacing: -.003em;
+  }
+  @include media-not-small {
+    letter-spacing: -.004em;
+  }
+
+  // unindent quote symbols
+  &.unindent-single-quote {
+    text-indent: -.2em;
+
+    &[data-align=center] {
+      text-indent: 0 !important;
+    }
+  }
+
+  &.unindent-double-quote {
+    text-indent: -.4em;
+
+    &[data-align=center] {
+      text-indent: 0 !important;
+    }
+  }
+
+  // child (dropcap)
+  // - For Korean dropcap, it seems font-size: 2.7em works best.
+  & > span.dropcap {
+    display       : block;
+    position      : relative;
+    float         : left;
+
+    font-family   : $fontSans;
+    font-weight   : 700;
+    font-style    : normal;
+    font-size     : 3.43em;
+
+    padding-top   : 6px;
+    margin-left   : -5px;
+    margin-right  : 7px;
+    letter-spacing: -.03em;
+    line-height   : .83;
+    margin-bottom : -.08em;
+  }
+}
+
+b, strong {
+  font-weight: 700;
+}
+
+//- heading -//
+h1, h2, h3, h4 {
+  @include no-hyphens;
+
+  color       : $darkest-black;
+  font-family : $fontSans;
+  font-weight : 400;
+  text-align  : left;;
+  line-height : $line-height * .9;
+  word-break  : keep-all !important;
+  word-wrap   : break-word !important;
+}
+
+h1 {
+  font-size : 1.425em;
+  text-align: center;
+  margin    : $line-height * 1em 0 0 0;
+}
+
+h2 {
+  font-size : 1.25em;
+  text-align: center;
+  margin    : $half-line-height * 1em 0 0 0;
+}
+
+h3 {
+  font-size  : 1.125em;
+  font-weight: 700;
+  margin     : $quarter-line-height * 1em 0 0 0;
+}
+
+h4 {
+  font-size   : 1em;
+  font-weight : 700;
+  margin      : $quarter-line-height * 1em 0 0 0;
+}
+
+li {
+  margin-top: $half-line-height * 1em;
+}

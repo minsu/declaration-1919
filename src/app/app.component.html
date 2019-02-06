@@ -1,0 +1,4 @@
+<div>
+  <button *ngFor="let item of langs"
+    [class.active]="isActive(item[0])" (click)="toggle(item[0])">{{ item[1] }}</button>
+</div>

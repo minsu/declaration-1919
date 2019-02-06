@@ -1,0 +1,93 @@
+/*
+ * stylesheet for documents
+ *
+ * Copyright 2019 Buk.io, Inc.
+ */
+
+@import "reset";
+@import "variables";
+@import "mixins";
+@import "common";
+
+body *[lang] { display: none; transition-duration: 0.4s; }
+
+body.kr *[lang="kr"] { display: block; }
+body.ko *[lang="ko"] { display: block; }
+body.en *[lang="en"] { display: block; }
+body.jp *[lang="jp"] { display: block; }
+
+button {
+  background-color: #e7e7e7;
+  border: 1px solid white;
+  color: black;
+  padding: .5em 16px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: .8em;
+  transition-duration: 0.4s;
+
+  &:focus { outline: none; }
+  &.active {
+    color: white;
+    background-color: #555555;
+  }
+}
+
+p {
+    position: relative;
+    &.divider {
+        margin-top: $line-height * 1.4em;
+    }
+
+    &:before {
+        content : attr(paragraph);
+        color   : $medium-gray;
+        position: absolute;
+        left    : -1.4em;
+        top     : 0;
+    }
+}
+
+h1 + h1, h2 + h2 {
+    margin-top: 0;
+}
+
+a {
+    color               : inherit;
+    text-decoration     : none;
+    background-color    : transparent;
+    background-repeat   : repeat-x;
+    background-image    : url('data:image/svg+xml;utf8,<svg preserveAspectRatio="none" viewBox="0 0 1 1" xmlns="http://www.w3.org/2000/svg"><line x1="0" y1="0" x2="1" y2="1" stroke="currentColor" /></svg>');
+    background-size     : 1px 1px;
+    background-position : 0 1.04em;
+}
+
+ruby > rt {
+    font-size: 65%;
+    @include no-selection();
+}
+
+span.alternative {
+    font-size: 75%;
+    color    : $medium-gray;
+
+    margin-left : 3px;
+    margin-right: 3px;
+}
+
+ul {
+    list-style: none;
+    margin-left: 0;
+    padding-left: 0;
+
+    li {
+        padding-left: 1em;
+        text-indent : -1em;
+
+        span.item {
+            display: inline-block;
+            width  : 1em;
+        }
+    }
+}

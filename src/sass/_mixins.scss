@@ -1,0 +1,80 @@
+//-- media queries
+// viewport, scroll-mode, e-ink device
+@mixin media-small {
+  @media all and (max-width: $media-small-max) { @content; }
+}
+@mixin media-medium {
+  @media all and (min-width: $media-medium-min)
+             and (max-width: $media-medium-max) { @content; }
+}
+@mixin media-large {
+  @media all and (min-width: $media-large-min) { @content; }
+}
+@mixin media-not-small {
+  @media all and (min-width: $media-medium-min) { @content; }
+}
+
+//-- media queries
+// scroll-mode, page-mode
+@mixin viewer-on-scroll {
+  @media (overflow-block: scroll){ @content; }
+}
+@mixin viewer-on-page {
+  @media (oveflow-block: paged){ @content; }
+}
+
+//-- media queries
+// screen update query
+@mixin animation-capable {
+  @media (update-frequency: normal) { @content; }
+}
+@mixin animation-incapable {
+  @media (update-frequency: slow),
+         (update-frequency: none) { @content; }
+}
+
+//-- media queries
+// touch / mouse device
+@mixin touch-device {
+  @media (pointer: coarse) { @content; }
+}
+@mixin mouse-device {
+  @media (pointer: fine) { @content; }
+}
+
+//-- no-hyphens
+@mixin no-hyphens {
+  hyphens         : none;
+  -webkit-hyphens : none;
+  -moz-hyphens    : none;
+  -ms-hyphens     : none;
+  -epub-hyphens   : none;
+  adobe-hyphenate : none;
+  overflow-wrap   : break-word;
+}
+
+@mixin no-selection {
+    user-select         : none;
+    -ms-user-select     : none;
+    -webkit-user-select : none;
+    -moz-user-select    : none;
+}
+
+@mixin no-page-break {
+  page-break-inside           : avoid;
+  break-inside                : avoid;
+  -webkit-column-break-inside : avoid;
+}
+
+@mixin page-break {
+  page-break-after: always;
+  break-after: always;
+}
+
+@mixin clearfix {
+  &:after {
+    content : "";
+    display : block;
+    clear   : both;
+  }
+}
